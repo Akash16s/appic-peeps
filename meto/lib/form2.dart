@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'image.dart';
 String _weight;
 String _height;
 String _temperature;
@@ -42,89 +44,97 @@ class Form2State extends State<Form2> {
                         height: 500,
                         width: 350,
                         child: Center(
-                          child: Column(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.all(10),
-                                child: TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  decoration:
-                                      InputDecoration(labelText: 'Weight'),
-                                  validator: (value) {
-                                    if (value == null) {
-                                      return 'This is required';
-                                    }
+                          child: Form(
+                            key: _formKey,
+                                                      child: Column(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    keyboardType: TextInputType.number,
+                                    decoration:
+                                        InputDecoration(labelText: 'Weight'),
+                                    validator: (value) {
+                                      if (value == null) {
+                                        return 'This is required';
+                                      }
+                                    },
+                                     onSaved: (val) {
+                                        setState(() {
+                                          _weight = val;
+                                        });
+                                      }
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    keyboardType: TextInputType.number,
+                                    decoration:
+                                        InputDecoration(labelText: 'Height'),
+                                    onSaved: (val) {
+                                    setState(() {
+                                      _height = val;
+                                    });
                                   },
+                                  ),
+                                ),
+                                Padding(
+                                 padding: EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration:
+                                        InputDecoration(labelText: 'Environmental Temperature'),
+                                    onSaved: (val) {
+                                    setState(() {
+                                      _temperature = val;
+                                    });
+                                  }
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'Drugs',
+                                    ),
                                    onSaved: (val) {
-                                      setState(() {
-                                        _weight = val;
-                                      });
-                                    }
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.all(10),
-                                child: TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  decoration:
-                                      InputDecoration(labelText: 'Height'),
-                                  onSaved: (val) {
-                                  setState(() {
-                                    _height = val;
-                                  });
-                                },
-                                ),
-                              ),
-                              Padding(
-                               padding: EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration:
-                                      InputDecoration(labelText: 'Environmental Temperature'),
-                                  onSaved: (val) {
-                                  setState(() {
-                                    _temperature = val;
-                                  });
-                                }
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: 'Drugs',
+                                        setState(() {
+                                          _drug = val;
+                                        });
+                                      }
                                   ),
-                                 onSaved: (val) {
-                                      setState(() {
-                                        _drug = val;
-                                      });
-                                    }
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 50),
-                              ),
-                              SizedBox(
-                                width: 300,
-                                height: 50,
-                                child: RaisedButton(
-                                  color: Color(0xFFF8913A),
-                                  child: Text(
-                                    'Submit',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 50),
+                                ),
+                                SizedBox(
+                                  width: 300,
+                                  height: 50,
+                                  child: RaisedButton(
+                                    color: Color(0xFFF8913A),
+                                    child: Text(
+                                      'Submit',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
+                                    ),
+                                    onPressed: () async {
+                                      if (_formKey.currentState.validate()) {
+                                        _formKey.currentState.save();
+                                         Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                         ImageState()));
+                                      }
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(25)),
                                   ),
-                                  onPressed: () async {
-                                    if (_formKey.currentState.validate()) {
-                                      _formKey.currentState.save();
-                                    }
-                                  },
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(25)),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
