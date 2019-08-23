@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'modelmaker.apps.ModelmakerConfig',
-    'rest_framework'
+    'rest_framework',
+    'imageApi',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +79,9 @@ WSGI_APPLICATION = 'meto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "iiitdhack1",
+        'NAME': "imagedb",
         'USER': 'postgres',
-        'PASSWORD': 'sri@123456',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
     }
 }
@@ -123,3 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+DEFAULT_PERMISSION_CLASSES: [
+    'rest_framework.permissions.AllowAny',
+]
