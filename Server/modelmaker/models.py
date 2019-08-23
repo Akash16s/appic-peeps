@@ -7,7 +7,7 @@ class user(models.Model):
     age = models.IntegerField()
     sex = models.CharField(max_length = 1)
     weightcurrent = models.IntegerField()
-    bmicurrent = models.IntegerField()
+    bmicurrent = models.IntegerField(blank=True)
 
 
     def __str__(self):

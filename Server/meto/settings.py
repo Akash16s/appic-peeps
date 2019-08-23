@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'meto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "iiitdhack",
+        'NAME': "iiitdhack1",
         'USER': 'postgres',
         'PASSWORD': 'sri@123456',
         'HOST': 'localhost',

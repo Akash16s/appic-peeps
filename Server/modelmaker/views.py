@@ -9,8 +9,8 @@ from . serializers import userSerializer
 # Create your views here.
 class maker(APIView):
     def get(self, request):
-        user1 = employees.objects.all()
-        serializer = employeesSerializer(user1, many=True)
+        user1 = user.objects.all()
+        serializer = userSerializer(user1, many=True)
         return Response(serializer.data)
     
     def post(self,request):
