@@ -51,7 +51,7 @@ class _ImageState extends State<ImageState> {
  file = await ImagePicker.pickImage(source: ImageSource.gallery);
  }
  void _click() async {
-   file = await ImagePicker.pickImage(source: ImageSource.camera);
+  file = await ImagePicker.pickImage(source: ImageSource.camera);
  }
 
  void _upload() {
