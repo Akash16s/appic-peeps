@@ -21,9 +21,12 @@ dependencies:
     sdk: flutter
   http: any
   image_picker: any
+<<<<<<< HEAD
   dio: any
 
 
+=======
+>>>>>>> a15e6786432793378f5cd77178a41544e0a01646
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -31,11 +34,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+<<<<<<< HEAD
   flutter_launcher_icons: any
 flutter_icons:
   android: true
   ios: true
   image_path: "assets/meto.png"
+=======
+>>>>>>> a15e6786432793378f5cd77178a41544e0a01646
 
 
 # For information on the generic Dart part of this file, see the
@@ -43,8 +49,11 @@ flutter_icons:
 
 # The following section is specific to Flutter.
 flutter:
+<<<<<<< HEAD
   assets:
     - assets/meto.png
+=======
+>>>>>>> a15e6786432793378f5cd77178a41544e0a01646
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

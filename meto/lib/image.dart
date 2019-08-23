@@ -9,6 +9,7 @@ import 'package:dio/dio.dart';
 
 File img;
 File imageToSend;
+
 class ImageState extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -42,9 +43,11 @@ class _ImageState extends State<ImageState> {
               )
             ],
           ),
+
           img == null
               ? Text('No Image Selected')
               : Image.file(img)
+
         ],
       ),
     );
@@ -75,3 +78,4 @@ void _upload() {
       .then((response) => print(response))
       .catchError((error) => print(error));
 }
+

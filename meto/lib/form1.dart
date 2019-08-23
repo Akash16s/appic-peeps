@@ -162,6 +162,7 @@ class Form1State extends State<Form1> {
                                             labelText: 'weight'),
                                         validator: (value) {
                                           if (value == '') {
+
                                             return 'This is required';
                                           }
                                         },
@@ -253,6 +254,7 @@ class Form1State extends State<Form1> {
                       ))
                 ],
               ),
+
             )
           ],
         ),

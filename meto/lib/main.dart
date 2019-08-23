@@ -39,6 +39,7 @@ class WelcomeScreenState extends State<WelcomeScreen>{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+
               Image.asset('assets/meto.png'),
               Text('Follow the path to be ',style: TextStyle(color: Colors.white.withOpacity(1),fontWeight: FontWeight.bold,fontSize: 20),),
               Padding(padding: EdgeInsets.only(top: 5),),
