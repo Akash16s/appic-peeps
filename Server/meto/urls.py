@@ -14,11 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from modelmaker import views
+from django.conf import settings
+from django.conf.urls.static import static
+#from modelmaker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('modelmaker/', views.maker.as_view())
+ #   path('modelmaker/', views.maker.as_view()),
+    path('image/', include('imageApi.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
