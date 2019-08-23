@@ -1,10 +1,10 @@
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . models import user
 from . serializers import userSerializer
+
 
 # Create your views here.
 class maker(APIView):
@@ -14,4 +14,16 @@ class maker(APIView):
         return Response(serializer.data)
     
     def post(self,request):
-        return
+        serializer = userSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class updater(APIView):
+    def put(self, request, pk):
+        serializer = userSerializer(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.save)
+        return Response(serializer.error, status = status.HTTP_400_BAD_REQUEST)
