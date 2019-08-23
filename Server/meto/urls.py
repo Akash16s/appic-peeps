@@ -20,5 +20,6 @@ from modelmaker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('modelmaker/', views.maker.as_view())
+    path('modelmaker/', views.maker.as_view()),
+    path('updater/', views.updater.as_view())
 ]
