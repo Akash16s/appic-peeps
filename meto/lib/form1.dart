@@ -55,7 +55,7 @@ class Form1State extends State<Form1> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                         child: Container(
-                          height: 600,
+                          height: 650,
                           width: 350,
                           child: Form(
                             key: _formKey,

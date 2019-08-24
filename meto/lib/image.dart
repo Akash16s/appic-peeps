@@ -114,7 +114,7 @@ Future _upload(BuildContext context) async{
           print(response.statusCode);
           var value = (jsonDecode(response.body));
   print(value);
-         Navigator.push(context, MaterialPageRoute(builder: (context)=>OutputScreen(value: value)));
+         Navigator.push(context, MaterialPageRoute(builder: (context)=>OutputScreen('$value')));
         });
       });
       });
