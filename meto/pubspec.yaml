@@ -20,7 +20,12 @@ dependencies:
   flutter:
     sdk: flutter
   http: any
+  dio: any
   image_picker: any
+  firebase_storage: ^3.0.0
+  flutter_speedometer: ^1.0.2
+  carousel_slider: any
+  flutter_webview_plugin:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -28,7 +33,17 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: any
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/meto.png"
 
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -71,3 +86,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/meto.png
