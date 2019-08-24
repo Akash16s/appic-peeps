@@ -25,7 +25,7 @@ SECRET_KEY = '_s51eb-ru2w7z2lwf!wuwh7(@bw0rq((p!#84u^e#c2i!xiv6c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["e2161af8.ngrok.io","localhost"]
 
 
 # Application definition
@@ -37,13 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'modelmaker.apps.ModelmakerConfig',
+    'rest_framework',
+    'imageApi',
+    'dataresponse'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -75,8 +78,11 @@ WSGI_APPLICATION = 'meto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "iiitdhack1",
+        'USER': 'postgres',
+        'PASSWORD': 'anuj21101998',
+        'HOST': 'localhost',
     }
 }
 
@@ -118,3 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+DEFAULT_PERMISSION_CLASSES: [
+    'rest_framework.permissions.AllowAny',
+]
