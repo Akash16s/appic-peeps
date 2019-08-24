@@ -106,7 +106,9 @@ Future _upload() async{
       ref.ref.getDownloadURL().then((str) {
         print(str);
         http.post(Uri.encodeFull('http://e2161af8.ngrok.io/image/'),body: {
-          'file':str,
+          'link':str,
+        }).then((response){
+          print(response.statusCode);
         });
       });
       });
