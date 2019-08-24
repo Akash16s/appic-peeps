@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . models import BMI
-from . serializers import dataserializer
+from . serializers import dataSerializer
 
 
 # Create your views here.
