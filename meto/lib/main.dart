@@ -39,9 +39,11 @@ class WelcomeScreenState extends State<WelcomeScreen>{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Follow the path to agree our',style: TextStyle(color: Colors.white.withOpacity(1),fontWeight: FontWeight.bold,fontSize: 20),),
+
+              Image.asset('assets/meto.png'),
+              Text('Follow the path to be ',style: TextStyle(color: Colors.white.withOpacity(1),fontWeight: FontWeight.bold,fontSize: 20),),
               Padding(padding: EdgeInsets.only(top: 5),),
-              Text('Terms and Privacy Policy',style: TextStyle(color: Colors.white.withOpacity(1),fontWeight: FontWeight.bold,fontSize: 20),),
+              Text('healthy with us',style: TextStyle(color: Colors.white.withOpacity(1),fontWeight: FontWeight.bold,fontSize: 20),),
               Padding(padding: EdgeInsets.only(top: 105)),
               SizedBox(
                 width: 300,
