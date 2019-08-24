@@ -105,9 +105,9 @@ Future _upload() async{
       print("Uploaded");
       ref.ref.getDownloadURL().then((str) {
         print(str);
-        // http.post(Uri.encodeFull('http://e2161af8.ngrok.io/image'),body: {
-        //   'file':str,
-        // });
+        http.post(Uri.encodeFull('http://e2161af8.ngrok.io/image/'),body: {
+          'file':str,
+        });
       });
       });
 }
