@@ -8,20 +8,21 @@ import 'meal.dart';
 
 class OutputScreen extends StatefulWidget{
   dynamic value;
-  OutputScreen({this.value});
+  OutputScreen(this.value);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return OutputScreenState();
   }
 }
+
 class OutputScreenState extends State<OutputScreen>{
    String url = value <= 25 ? 'how + to + increase + BMI + to + 25' : 'how + to + decrease + BMI + to + 25 ';
   @override
 //  PublishSubject<double> eventObservable = new PublishSubject();
   void initState() {
     super.initState();
-   // print(value);
+    print(value);
   }
   Widget build(BuildContext context) {
 
@@ -112,7 +113,7 @@ class OutputScreenState extends State<OutputScreen>{
                             ),
                           );
                         },
-                      itemCount: c > 25 ? over25.length : under25.length,
+                      itemCount: value> 25 ? over25.length : under25.length,
                     )
                   ),
                   Container(height: 30.0,),
