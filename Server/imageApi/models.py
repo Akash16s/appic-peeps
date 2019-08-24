@@ -1,8 +1,9 @@
 from django.db import models
-
+from datetime import datetime
 
 class File(models.Model):
-    file = models.FileField(upload_to='photos/', max_length=254, blank=True, null=True)
+    link = models.CharField(max_length = 200)
 
     def __str__(self):
-        return self.file.name
+        return self.file
+

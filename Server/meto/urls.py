@@ -18,12 +18,13 @@ from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.conf import settings
 from django.conf.urls.static import static
-#from modelmaker import views
+from modelmaker import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
- #   path('modelmaker/', views.maker.as_view()),
+    path('modelmaker/', views.maker.as_view()),
     path('image/', include('imageApi.urls')),
+    path('pushdata/', include('dataresponse.urls'))
 ]
 
 if settings.DEBUG:
