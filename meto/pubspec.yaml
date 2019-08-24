@@ -87,4 +87,9 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-    - assets/meto.png
+   - assets/meto.png
+   - assets/1.png
+   - assets/2.png
+   - assets/3.png
+   - assets/4.png
+   - assets/5.png

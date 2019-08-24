@@ -6,10 +6,11 @@ import 'image.dart';
 //String _email;
 String _firstname;
 String _lastname;
-
+String _height;
 String _mobile;
 String _gender;
 String _age;
+dynamic value;
 
 final _formKey = GlobalKey<FormState>();
 
@@ -173,6 +174,24 @@ class Form1State extends State<Form1> {
                                         }),
                                   ),
                                   Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: TextFormField(
+                                        keyboardType: TextInputType.number,
+                                        decoration: InputDecoration(
+                                            labelText: 'height'),
+                                        validator: (value) {
+                                          if (value == '') {
+
+                                            return 'This is required';
+                                          }
+                                        },
+                                        onSaved: (val) {
+                                          setState(() {
+                                            _height = val;
+                                          });
+                                        }),
+                                  ),
+                                  Padding(
                                     padding: EdgeInsets.only(top: 50),
                                   ),
                                   SizedBox(
@@ -189,9 +208,10 @@ class Form1State extends State<Form1> {
                                       ),
                                       onPressed: () async {
                                         if (_formKey.currentState.validate ( )) {
+                                          value = double.parse(_mobile)/(double.parse(_height)*double.parse(_height));
                                           _formKey.currentState.save ( );
                                           return http.post (
-                                              Uri.encodeFull ('http://d2cf961e.ngrok.io/modelmaker/',
+                                              Uri.encodeFull ('http://cbc10dfd.ngrok.io/modelmaker/',
                                               ),
                                               body: {
                                                 'firstname': _firstname,
@@ -210,7 +230,7 @@ class Form1State extends State<Form1> {
                                                 context,
                                                 MaterialPageRoute (
                                                     builder: (context) =>
-                                                        Form2 ( ) ) );
+                                                        ImageState ( ) ) );
                                             }
                                                 else CircularProgressIndicator ( );
                                           } );

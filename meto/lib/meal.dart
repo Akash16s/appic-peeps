@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'dart:io';
+import 'result.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'output.dart';
@@ -90,7 +90,7 @@ class _MealState extends State<MealState> {
             color: Color(0xFFF8913A),
             onPressed: () => {
               _upload,
-              Navigator.push(context, MaterialPageRoute(builder: (context) => OutputScreen()))
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Result()))
             },
             child: Icon(Icons.file_upload, color: Colors.white,),
           )

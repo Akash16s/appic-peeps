@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:async/async.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
+
+import 'output.dart';
 File file;
 dynamic imageToSend;
 
@@ -88,7 +91,7 @@ class _ImageState extends State<ImageState> {
               RaisedButton(
                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             color: Color(0xFFF8913A),
-                onPressed: _upload,
+                onPressed: () =>_upload(context),
                  child: Icon(Icons.file_upload, color: Colors.white,),
               ),
                  ],
@@ -96,8 +99,8 @@ class _ImageState extends State<ImageState> {
     );
   }
 }
-Future _upload() async{
-  String fileName = file.path.split("/").last;
+Future _upload(BuildContext context) async{
+ String fileName = file.path.split("/").last;
   print("Uploading");
     StorageReference storageReference = FirebaseStorage.instance.ref().child('$fileName');
     StorageUploadTask task = storageReference.putFile(imageToSend);
@@ -105,10 +108,13 @@ Future _upload() async{
       print("Uploaded");
       ref.ref.getDownloadURL().then((str) {
         print(str);
-        http.post(Uri.encodeFull('http://e2161af8.ngrok.io/image/'),body: {
+        http.post(Uri.encodeFull('http://cbc10dfd.ngrok.io/image/'),body: {
           'link':str,
         }).then((response){
           print(response.statusCode);
+          var value = (jsonDecode(response.body));
+  print(value);
+         Navigator.push(context, MaterialPageRoute(builder: (context)=>OutputScreen(value: value)));
         });
       });
       });
